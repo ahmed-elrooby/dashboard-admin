@@ -136,6 +136,12 @@ const AddCateogory = () => {
             <select onChange={handleChanngeSelect} id='isActive' name='isActive' className="w-full border p-3 border-[--secondary-color]  bg-white dark:bg-[#171717] rounded">
                {options.map((option, idx) => <option   key={idx} value={option.value}>{option.label}</option>)}
             </select>
+            <select onChange={handleChanngeSelect} id='isActive' name='isActive' className="w-full border p-3 border-[--secondary-color]  bg-white dark:bg-[#171717] rounded">
+               {options.map((option, idx) => <option   key={idx} value={option.value}>{option.label}</option>)}
+            </select>
+            <select onChange={handleChanngeSelect} id='isActive' name='isActive' className="w-full border p-3 border-[--secondary-color]  bg-white dark:bg-[#171717] rounded">
+               {options.map((option, idx) => <option   key={idx} value={option.value}>{option.label}</option>)}
+            </select>
 
             <select className="w-full border p-3 border-[--secondary-color] capitalize bg-white dark:bg-[#171717] rounded" name="parentCategoryId" id="parentCategoryId" onChange={handleChange}>
                <option value="">No Parent category</option>
