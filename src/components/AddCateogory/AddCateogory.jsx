@@ -10,7 +10,6 @@ import { BiSolidErrorAlt } from "react-icons/bi";
 import { GrStatusGood } from "react-icons/gr";
 import { context } from '@/Providers/Context/ContextData';
 
-
 const AddCateogory = () => {
    const { setLoadding, loadding, categories, getAllCategories } = useContext(context)
    const router = useRouter();
@@ -80,8 +79,8 @@ const AddCateogory = () => {
    }
 
    const options = [
-      { label: "active", value: true },
-      { label: "not active", value: false },
+      { label: "Active", value: true },
+      { label: "Not Active", value: false },
    ];
 
    return (
@@ -134,11 +133,11 @@ const AddCateogory = () => {
                </div>
             </div>
 
-            <select onChange={handleChanngeSelect} id='isActive' name='isActive' className="w-full border p-3 border-[--secondary-color] rounded">
-               {options.map((option, idx) => <option key={idx} value={option.value}>{option.label}</option>)}
+            <select onChange={handleChanngeSelect} id='isActive' name='isActive' className="w-full border p-3 border-[--secondary-color]  bg-white dark:bg-[#171717] rounded">
+               {options.map((option, idx) => <option   key={idx} value={option.value}>{option.label}</option>)}
             </select>
 
-            <select className="w-full border p-3 border-[--secondary-color] rounded" name="parentCategoryId" id="parentCategoryId" onChange={handleChange}>
+            <select className="w-full border p-3 border-[--secondary-color] capitalize bg-white dark:bg-[#171717] rounded" name="parentCategoryId" id="parentCategoryId" onChange={handleChange}>
                <option value="">No Parent category</option>
                {categories?.map((ele) => <option key={ele.categoryId} value={ele.categoryId}>{ele.name}</option>)}
             </select>

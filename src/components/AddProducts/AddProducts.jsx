@@ -94,9 +94,9 @@ toast.error(`failed to create '${product.name}'`)
         </div>
         <div className="flex md:flex-row flex-col gap-4 md:gap-x-4 w-full items-center">
         <input type="number" onChange={handleChange} className='w-full md:w-1/2' name="costPrice" id="costPrice" placeholder='costPrice' />
-        <select onChange={handleChange} name="status" className=" w-full md:w-1/2 border p-3 border-[--secondary-color] rounded">
+        <select onChange={handleChange} name="status" className=" w-full md:w-1/2 border p-3 border-[--secondary-color] capitalize bg-white dark:bg-[#171717] rounded">
                 <option value="Active">Active</option>
-                <option value="Notactive">Notactive</option>
+                <option value="Notactive">Not active</option>
             </select>
 </div>
         
