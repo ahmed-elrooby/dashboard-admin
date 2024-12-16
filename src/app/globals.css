@@ -11,7 +11,12 @@
   --secondary-color:#3d74e5;
 --hover-color:#453de1c8;
 }
-
+body,html{
+  transition:all 0.5s ease-in-out;
+    margin: 0;
+    padding: 0;
+  
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
