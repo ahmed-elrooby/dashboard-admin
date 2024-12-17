@@ -28,7 +28,7 @@ const TableOfProducts = () => {
       const fetchProducts = async () => {
         setLoadding(true)
         try {
-          const { data } = await axiosInstance.get(`http://e-commerce-api.runasp.net/api/Product/search?searchTerm=${query}`);
+          const { data } = await axiosInstance.get(`/api/Product/search?searchTerm=${query}`);
          console.log(data)
           if (data.isSuccess) {
             setProducts(data.data);

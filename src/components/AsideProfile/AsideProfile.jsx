@@ -1,10 +1,8 @@
 "use client"
-import Link from 'next/link'
-import React from 'react'
-import { TbPasswordUser } from "react-icons/tb";
-import { IoSettings } from "react-icons/io5";
-import { RiAccountPinBoxFill } from "react-icons/ri";
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { IoSettings } from "react-icons/io5";
+import { TbPasswordUser } from "react-icons/tb";
 
 const AsideProfile = () => {
   const elements = [
@@ -19,7 +17,7 @@ const AsideProfile = () => {
   const hoveractive = "transition-all hover:bg-[--main-color] hover:dark:bg-[#4444445e]";
 
   return (
-    <div className='dark:bg-[#171717] shadow-lg bg-white rounded-lg w-full md:w-[370px] pb-[79px] pt-4 mt-[10px] p-2'>
+    <div className='dark:bg-[#171717] shadow-lg bg-white rounded-lg w-[95%] md:w-[370px] pb-[79px] pt-4 mt-[10px] p-2'>
       <aside className='p-2'>
         <div>
           <ul className='flex flex-col items-start gap-8'>

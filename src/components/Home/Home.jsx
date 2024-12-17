@@ -1,18 +1,17 @@
 "use client"
 
-import Link from 'next/link'
+import { context } from '@/Providers/Context/ContextData';
+import { useContext } from 'react';
 import { AiFillProduct } from "react-icons/ai";
 import { FaBasketShopping } from "react-icons/fa6";
-import { TiGroup } from "react-icons/ti";
 import { IoListCircle } from "react-icons/io5";
-import React, { useContext } from 'react'
-import CountChart from '../CountChart/CountChart';
-import SalesChart from '../SalesCharts/SalesChart';
-import PerformanceEcommerce from '../PerformanceEcommerce/PerformanceEcommerce';
-import EvevtCalender from '../EvevtCalender/EvevtCalender';
+import { TiGroup } from "react-icons/ti";
 import Announcements from '../Announcements/Announcements';
+import CountChart from '../CountChart/CountChart';
+import EvevtCalender from '../EvevtCalender/EvevtCalender';
+import PerformanceEcommerce from '../PerformanceEcommerce/PerformanceEcommerce';
 import ProductHome from '../ProductHome/ProductHome';
-import { context } from '@/Providers/Context/ContextData';
+import SalesChart from '../SalesCharts/SalesChart';
 
 const Home = () => {
 const currentDate = new Date()

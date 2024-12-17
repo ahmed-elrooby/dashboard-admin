@@ -31,17 +31,16 @@ const deleteItem = (ele)=>{
   return (
     <div className='w-full'>
    <div className='w-full flex flex-col items-start gap-4'>
-   <form onSubmit={handleSkills} className='w-full flex '>
-        <div className='flex w-full items-center justify-around'>
+   <form onSubmit={handleSkills} className='w-full flex  '>
+        <div className='flex w-full flex-col md:flex-row gap-1 justify-between'>
           <input
             type="text"
             value={skillInput}
             onChange={(e) => setSkillInput(e.target.value)}
-            className='border-b-2 pb-2 outline-none dark:border-[--secDark-color] border-[--secondary-color] bg-transparent '
-            placeholder='Enter your skills'
+            placeholder='Enter your skills....'
           />
           <button 
-          className=' border text-[--secondary-color] transition-all dark:hover:bg-[--secDark-color] hover:bg-[--secondary-color] dark:hover:text-white hover:text-white hover:border dark:border-[--secDark-color] dark:text-[--secDark-color] border-[--secondary-color] capitalize font-bold px-[15px] py-[5px] rounded-lg'>Add 
+          className='w-fit btn-primary'>Add 
           </button>
         </div>
        
@@ -50,12 +49,12 @@ const deleteItem = (ele)=>{
           {skills?.map((skill, idx) => (
             <div
             key={idx}
-            className="flex items-start gap-1 px-3 py-1 dark:bg-transparent dark:text-[--secDark-color] dark:border-2 dark:border-[--secDark-color] bg-gray-100 rounded-full"
+            className="btn-primary py-[2px]"
           >
             <span>{skill}</span>
             <button
              onClick={()=>{deleteItem(skill)}}
-              className="p-1 hover:text-red-500 transition-all"
+              className="p hover:text-red-500 transition-all"
             >
               <IoMdClose size={18}  />
             </button>

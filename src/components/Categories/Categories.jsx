@@ -1,12 +1,11 @@
 "use client"
-import React, { useContext } from 'react'
-import Link from 'next/link';
-import Image from 'next/image';
 import axiosInstance from '@/_utils/axiosInstance';
+import { context } from '@/Providers/Context/ContextData';
+import Link from 'next/link';
+import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { withSwal } from 'react-sweetalert2';
 import TableOfCategories from './TableOfCategories';
-import { context } from '@/Providers/Context/ContextData';
 const Categories = ({ swal }) => {
   const { categories, getAllCategories } = useContext(context);
   // _____________________________________________

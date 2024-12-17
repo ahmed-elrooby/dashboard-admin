@@ -1,14 +1,14 @@
 "use client"
 import axiosInstance from '@/_utils/axiosInstance';
+import { context } from '@/Providers/Context/ContextData';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { BiSolidErrorAlt } from "react-icons/bi";
 import { FaSpinner } from 'react-icons/fa';
 import { FiUpload } from 'react-icons/fi';
-import { BiSolidErrorAlt } from "react-icons/bi";
 import { GrStatusGood } from "react-icons/gr";
-import { context } from '@/Providers/Context/ContextData';
 
 const AddCateogory = () => {
    const { setLoadding, loadding, categories, getAllCategories } = useContext(context)
