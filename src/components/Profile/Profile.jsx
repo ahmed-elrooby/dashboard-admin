@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import { FaBriefcase, FaUserAlt } from 'react-icons/fa'
 import { IoShieldCheckmark } from 'react-icons/io5'
 import { MdEmail } from 'react-icons/md'
+import AddSkills from './AddSkills'
 
 const Profile = () => {
  const {dataOfAdmin} = useContext(context)
@@ -29,6 +30,7 @@ admin
 
      {dataOfAdmin.position}
      </p>
+     <AddSkills/>
   </section>
   </div>
   </>

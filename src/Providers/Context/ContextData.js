@@ -109,8 +109,13 @@ useEffect(() => {
 // _________________________________________________________________________________
 //get all products 
 const getAllProducts =async ()=>{
-  const {data} =await axiosInstance.get("/api/Product");
-setProducts(data.data);
+  try{
+    const {data} =await axiosInstance.get("/api/Product");
+    setProducts(data.data);
+  }catch(err){
+    console.log(err)
+  }
+
 }
 
 
