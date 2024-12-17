@@ -7,7 +7,7 @@ import { MdAutoDelete } from 'react-icons/md'
 import Link from 'next/link'
 import { context } from '@/Providers/Context/ContextData'
 import Cookies from 'js-cookie'
-
+import { motion } from 'framer-motion'
 const TableOfCategories = ({handleDelete}) => {
    const {categories} = useContext(context)
    const token = Cookies.get("tokenUser")
@@ -17,7 +17,9 @@ const TableOfCategories = ({handleDelete}) => {
     <div className='-my-2 -mx-4 sm:-mx-6 lg:mx-8 overflow-x-auto'>
 <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
     <div className='overflow-x-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'>
-        <table className=' min-w-full divide-y divide-gray-300'>
+        <table
+        
+        className=' min-w-full divide-y divide-gray-300'>
 <thead className='bg-[--secondary-color]  text-white font-bold capitalize'>
     <tr>
         <th
@@ -43,7 +45,16 @@ const TableOfCategories = ({handleDelete}) => {
     categories?
 <tbody className="divide-y dark:divide-[#101010] divide-gray-200 text-gray-900 dark:text-white bg-white dark:bg-[#171717]">
   {categories?.map((ele) => (
-    <tr key={ele.categoryId}>
+    <motion.tr 
+    initial={{opacity:0}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    opacity:1
+                }}
+    key={ele.categoryId}>
       <td className="whitespace-nowrap px-4 pl-4 pr-3 text-sm font-medium text-[--secondary-color] sm:pl-6">
         {ele.name}
         <Image
@@ -82,7 +93,7 @@ const TableOfCategories = ({handleDelete}) => {
           </div>
         )}
       </td>
-    </tr>
+    </motion.tr>
   ))}
 </tbody>:<SkeltonCategories/>
 }

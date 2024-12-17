@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+import { motion } from "framer-motion";
 const data = [
   { name: "Jan", sales: 4000, returns: 240 },
   { name: "Feb", sales: 3000, returns: 139 },
@@ -29,7 +30,16 @@ const data = [
 
 const PerformanceEcommerce = () => {
   return (
-    <div className=" rounded-xl w-full h-full p-4">
+    <motion.div 
+    initial={{scale:0.5}}
+    transition={{
+        duration:0.7,
+        type:"tween"
+    }}
+    whileInView={{
+        scale:1
+    }}
+    className=" rounded-xl w-full h-full p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">E-commerce Performance</h1>
         <FaEllipsisH className="text-gray-500" />
@@ -70,7 +80,7 @@ const PerformanceEcommerce = () => {
           <Line type="monotone" dataKey="returns" stroke="#F44336" strokeWidth={5} />
         </LineChart>
       </ResponsiveContainer>
-    </div>
+    </motion.div>
   );
 };
 

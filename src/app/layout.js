@@ -1,10 +1,10 @@
-import { Ubuntu } from "next/font/google";
-import "./globals.css";
-import Aside from "@/components/Aside/Aside";
-import Header from "@/components/Header/Header";
-import { Toaster } from "react-hot-toast";
 import ContextData from "@/Providers/Context/ContextData";
 import ThemeProvider from "@/Providers/Tehme/ThemeProvider";
+import Aside from "@/components/Aside/Aside";
+import Header from "@/components/Header/Header";
+import { Ubuntu } from "next/font/google";
+import { Toaster } from "react-hot-toast";
+import "./globals.css";
 
 const ubuntu = Ubuntu({
   subsets: ["latin"],
@@ -25,18 +25,19 @@ export default function RootLayout({ children }) {
       >
         <ContextData>
           <ThemeProvider>
-            <Header />
+           <Header />
 
-            <div className="flex  items-start  ">
-              <Aside />
-              <section className="w-full pt-4 min-h-screen mx-auto dark:bg-[#101010] bg-[--main-color]   ">
+<div className="flex  items-start  ">
+  <Aside />
+  <section className="w-full pt-4 min-h-screen mx-auto dark:bg-[#101010] bg-[--main-color]   ">
 
-                <div className="py-2">
-                  {children}
-                </div>
+    <div className="pt-2 ">
+      {children}
 
-              </section>
-            </div>
+    </div>
+
+  </section>
+</div>
           </ThemeProvider>
 
         </ContextData>

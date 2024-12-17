@@ -2,13 +2,22 @@
 import { context } from '@/Providers/Context/ContextData'
 import React, { useContext } from 'react'
 import SkeletonProductHome from '../Skeltons/SkeletonProductHome/SkeletonProductHome'
-
+import { motion } from 'framer-motion'
 const ProductHome = () => {
     const {products} = useContext(context)
 
   return <>
    <div className='mt-2  w-full '>
-  <table className=' w-full divide-y   divide-gray-300'>
+  <motion.table
+   initial={{scale:0.5}}
+   transition={{
+       duration:0.7,
+       type:"tween"
+   }}
+   whileInView={{
+       scale:1
+   }}
+   className=' w-full divide-y   divide-gray-300'>
 <thead className='bg-[--secondary-color]  text-white font-bold capitalize'>
     <tr >
    
@@ -66,7 +75,7 @@ const ProductHome = () => {
 
 
 
-        </table>
+        </motion.table>
   </div>
   </>
 }

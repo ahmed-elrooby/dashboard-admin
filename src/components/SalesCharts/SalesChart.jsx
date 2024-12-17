@@ -11,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
+import { motion } from "framer-motion";
 // بيانات المبيعات
 const salesData = [
   { day: "Mon", completed: 250, canceled: 10, revenue: 500 },
@@ -42,7 +42,17 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const SalesChart = () => {
   return (
-    <div className="rounded-lg p-4 h-full  ">
+    <motion.div
+    initial={{scale:0.5}}
+    transition={{
+        duration:0.7,
+        type:"tween"
+    }}
+    whileInView={{
+        scale:1
+    }}
+    
+    className="rounded-lg p-4 h-full  ">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-lg font-semibold capitalize">Sales Statistics</h1>
         <FaEllipsisH className="text-gray-500" />
@@ -62,7 +72,7 @@ const SalesChart = () => {
           <Bar dataKey="revenue" fill="#82CA9D" barSize={50} name="Revenue ($)" />
         </BarChart>
       </ResponsiveContainer>
-    </div>
+    </motion.div>
   );
 };
 

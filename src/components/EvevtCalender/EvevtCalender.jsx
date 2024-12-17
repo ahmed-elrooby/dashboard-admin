@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { FaEllipsisH } from 'react-icons/fa';
-
+import { motion } from 'framer-motion';
 const EvevtCalender = () => {
   const events = [
     {
@@ -44,14 +44,34 @@ const EvevtCalender = () => {
 
   return (
     <div className='w-full bg-white shadow p-5 rounded-lg dark:bg-[#171717]'>
-      <Calendar onChange={onChange} value={value} />
+<motion.div
+ initial={{scale:0.5}}
+ transition={{
+     duration:0.7,
+     type:"tween"
+ }}
+ whileInView={{
+     scale:1
+ }}
+>
+<Calendar onChange={onChange} value={value} />
+
+</motion.div>
       <div className="flex my-2 justify-between items-center">
         <h1 className="text-lg font-semibold">Events</h1>
         <FaEllipsisH className="text-gray-500" />
       </div>
       <div className='flex flex-col gap-4'>
         {events.map((event) => (
-          <div
+          <motion.div
+          initial={{scale:0.5}}
+          transition={{
+              duration:0.7,
+              type:"tween"
+          }}
+          whileInView={{
+              scale:1
+          }}
             className='p-5 border-gray-100 rounded-md odd:border-t-[#8DD1E1] even:border-t-[#83A6ED] border-2 border-t-4'
             key={event.id}
           >
@@ -60,7 +80,7 @@ const EvevtCalender = () => {
               <span className='text-[#ddd] dark:text-gray-300 text-xs'>{event.time}</span>
             </div>
             <p className='text-gray-400 text-sm'>{event.description}</p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

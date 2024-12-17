@@ -6,6 +6,8 @@ import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { withSwal } from 'react-sweetalert2';
 import TableOfCategories from './TableOfCategories';
+import { motion } from 'framer-motion';
+
 const Categories = ({ swal }) => {
   const { categories, getAllCategories } = useContext(context);
   // _____________________________________________
@@ -52,12 +54,33 @@ const Categories = ({ swal }) => {
   return <>
     <div className=' w-[95%] mb-3  mx-auto'>
     <div className='flex ml-3 gap-1 md:flex-row flex-col justify-between items-start md:items-center'>
-    <div className='flex flex-col gap-1 items-start'>
+    <motion.div
+     initial={{scale:0.5}}
+     transition={{
+         duration:0.7,
+         type:"tween"
+     }}
+     whileInView={{
+         scale:1
+     }}
+    className='flex flex-col gap-1 items-start'>
           <h1 className='btn'>categories </h1>
           <span className='text-gray-400'>Let’s check your update today</span>
-        </div>
-        <Link href="AddCateogories" className='btn-primary w-full text-center md:w-fit'>add new category</Link>
+        </motion.div>
+<motion.div
+ initial={{scale:0.5}}
+ transition={{
+     duration:0.7,
+     type:"tween"
+ }}
+ whileInView={{
+     scale:1
+ }}
 
+>
+<Link href="AddCateogories" className='btn-primary w-full text-center md:w-fit'>add new category</Link>
+
+</motion.div>
       </div>
 
 

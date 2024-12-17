@@ -9,7 +9,7 @@ import { MdOutlineMarkEmailUnread } from 'react-icons/md'
 import { VscEye, VscEyeClosed } from "react-icons/vsc";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { context } from '@/Providers/Context/ContextData';
-
+import { motion } from 'framer-motion';
 const Login = () => {
   const { getData,makeReg,loadding } = useContext(context);
   const [show, setShow] = useState(false)
@@ -24,11 +24,32 @@ const Login = () => {
     <span className='w-[100px] my-2 block mx-auto h-[3px] bg-[--secondary-color] rounded-full'></span>
 
       <div className='flex flex-col md:flex-row border-2   mb-2 p-4 rounded-lg items-center gap-4'>
-        <Image
+<motion.div
+ initial={{scale:0.5}}
+ transition={{
+     duration:0.7,
+     type:"tween"
+ }}
+ whileInView={{
+     scale:1
+ }}
+>
+<Image
           loading='lazy'
 
           className='w-full md:w-[400px] object-cover' src={loginimg} alt='register' />
-        <form onSubmit={makeReg} className='flex  relative px-4 py-6 bg-white dark:bg-[#171717] flex-col gap-5 rounded-lg w-full md:w-[80%] ' action="">
+        
+</motion.div>
+        <motion.form initial={{scale:0.5}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    scale:1
+                }}
+        
+        onSubmit={makeReg} className='flex  relative px-4 py-6 bg-white dark:bg-[#171717] flex-col gap-5 rounded-lg w-full md:w-[80%] ' action="">
           <h1 className='md:text-[25px] text-[16px] font-bold capitalize text-[--secondary-color] flex  gap-4 mt-8 md:mt-6 relative w-fit '>welcome back <span className=' md:text-[30px] absolute -top-1 -right-[50px]   text-[20px]'> 🤗</span>
           </h1>
           <span className='capitalize text-gray-400'>enter your email and password</span>
@@ -68,7 +89,7 @@ const Login = () => {
           <button className='px-2 py-2 capitalize border-2 transition-all text-white rounded-full hover:bg-white hover:border-2 hover:border-[--secondary-color] hover:text-[--secondary-color] w-[80%] m-auto bg-[--secondary-color] font-bold'>
             {loadding ? <FaSpinner className="mx-auto text-[22px] animate-spin" /> : "login"}
           </button>
-        </form>
+        </motion.form>
 
       </div>
     </div>

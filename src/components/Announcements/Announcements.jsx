@@ -1,5 +1,6 @@
+"use client"
 import React from 'react'
-
+import { motion } from 'framer-motion';
 const Announcements = () => {
     const announcements = [
         {
@@ -31,14 +32,23 @@ const Announcements = () => {
     </div>
     <div className='flex flex-col gap-2 mt-2'>
 {
-    announcements.map((ann)=><div key={ann.id} className='odd:bg-[#83A6ED] p-3 rounded-md even:bg-[#8DD1E1]'>
+    announcements.map((ann)=><motion.div 
+    initial={{scale:0.5}}
+    transition={{
+        duration:0.7,
+        type:"tween"
+    }}
+    whileInView={{
+        scale:1
+    }}
+    key={ann.id} className='odd:bg-[#83A6ED] p-3 rounded-md even:bg-[#8DD1E1]'>
 <div className='flex justify-between items-center my-2'>
 <h1 className='text-gray-200 font-semibold'>{ann.title}</h1>
 <span className='text-[#ddd] dark:text-gray-400 bg-white w-fit dark:bg-[#282828] p-1 rounded-lg text-xs'>{ann.time}</span>
 </div>
 <p className='text-gray-200 text-xs'>{ann.description}</p>
 
-</div>
+</motion.div>
 )
 }
     </div>

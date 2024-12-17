@@ -9,7 +9,7 @@ import { TbPasswordUser } from "react-icons/tb";
 import { RiLockPasswordLine } from 'react-icons/ri'
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
 import { useRouter } from 'next/navigation'
-
+import { motion } from 'framer-motion'
 
 const Changepassword = () => {
     const router = useRouter();
@@ -71,7 +71,19 @@ const Changepassword = () => {
 
     return <>
         <div className='rounded-lg shadow-lg dark:bg-[#171717] w-[90%] bg-white'>
-            <h1
+           <motion.div
+            initial={{scale:0.5,opacity:0}}
+            transition={{
+                duration:0.7,
+                type:"tween"
+            }}
+            whileInView={{
+                scale:1,
+                opacity:1
+            }}
+           
+           >
+           <h1
                 className='mb-3 pt-5 ml-4   md:text-[18px] text-[18px] capitalize text-[--secondary-color] font-bold relative after:absolute after:content-[""] before:content-[""] before:absolute before:bottom-[-4px] before:h-[4px] before:bg-white before:w-full before:left-0 after:bottom-[-4px] after:left-0 pb-1 after:rounded-md after:bg-[--secondary-color] before:rounded-md after:w-1/2 after:h-[4px] w-fit  '>
                 Change password
             </h1>
@@ -148,6 +160,7 @@ const Changepassword = () => {
                 <p>- be at least 8 characters long</p>
                 <p>- can not contain spaces and "|" symbol</p>
             </div>
+           </motion.div>
         </div>
     </>
 }

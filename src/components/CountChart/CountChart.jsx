@@ -3,7 +3,7 @@ import { context } from '@/Providers/Context/ContextData';
 import React, { useContext } from 'react'
 import { FaEllipsisH } from 'react-icons/fa';
 import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
-
+import { motion } from 'framer-motion';
 
 
 const CountChart = () => {
@@ -31,7 +31,16 @@ const CountChart = () => {
       ];
   return <>
      
-      <div className='w-full h-full pb-10 p-4 '>
+      <motion.div
+       initial={{scale:0.5}}
+       transition={{
+           duration:0.7,
+           type:"tween"
+       }}
+       whileInView={{
+           scale:1
+       }}
+      className='w-full h-full pb-10 p-4 '>
 <div className='flex justify-between items-center'>
     <div className='flex flex-col gap-1 items-center'>
     <h3 className='capitalize font-bold'>products</h3>
@@ -74,7 +83,7 @@ const CountChart = () => {
 
   </div>
 
-      </div>
+      </motion.div>
   </>
 }
 

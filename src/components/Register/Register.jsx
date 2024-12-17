@@ -8,7 +8,7 @@ import { FaSpinner } from "react-icons/fa"
 import { PiHandWavingLight } from "react-icons/pi"
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
 import regImage from "../../images/register.svg"
-
+import { motion } from 'framer-motion'
 import axiosInstance from '@/_utils/axiosInstance'
 import Link from 'next/link'
 const Register = () => {
@@ -87,7 +87,17 @@ const handleShow = () => {
   <div className='p-3 mx-auto min-h-screen w-full'>
     <span className='w-[100px] block mx-auto h-[3px] bg-[--secondary-color] rounded-full'></span>
     <div className='flex flex-col md:flex-row  p-4  items-center gap-4'>
-        <form onSubmit={makeReg} className='flex dark:bg-[#171717] bg-white rounded-lg  p-6 flex-col gap-3 w-full ' action="">
+        <motion.form
+         initial={{scale:0.5}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    scale:1
+                }}
+        
+        onSubmit={makeReg} className='flex dark:bg-[#171717] bg-white rounded-lg  p-6 flex-col gap-3 w-full ' action="">
           <h1 className='text-center flex gap-2 capitalize text-[--secondary-color] text-[20px] md:text-[25px] font-bold'>create account <span className='transition-all animate select-none'><PiHandWavingLight size={36}/></span></h1>
           <span className='capitalize text-[12px] md:text-[17px] text-gray-400'>get starting by creating your new account</span>
         <input onChange={getData} type="text" name="firstName" id="firstName" placeholder='firstName' />
@@ -114,8 +124,18 @@ const handleShow = () => {
             <button className='px-2 py-2 capitalize border-2 transition-all text-white rounded-full hover:bg-white hover:border-2 hover:border-[--secondary-color] hover:text-[--secondary-color] w-[80%] m-auto bg-[--secondary-color] font-bold'>
             {loadding ? <FaSpinner className="mx-auto text-[22px] animate-spin" /> : "sign up"}
           </button>
-        </form>
-        <div>
+        </motion.form>
+        <motion.div
+         initial={{scale:0.5}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    scale:1
+                }}
+        
+        >
             <Image
                     loading='lazy'
 
@@ -125,7 +145,7 @@ const handleShow = () => {
             <span className='text-gray-400 capitalize'>we are happy to have you back</span>
             <Link className='w-fit py-1 px-8 rounded-lg capitalize text-white font-bold hover:text-[--secondary-color] hover:bg-white border border-[--secondary-color] bg-[--secondary-color] transition-all ' href="/Login">login</Link>
            </div>
-        </div>
+        </motion.div>
     </div>
   </div>
   </>

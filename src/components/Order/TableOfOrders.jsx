@@ -2,9 +2,10 @@
 import React, { useContext } from 'react'
 import { context } from '@/Providers/Context/ContextData'
 import SkeletonOrders from '../Skeltons/SkeletonOrders/SkeletonOrders'
-
+import { motion } from 'framer-motion'
 const TableOfOrders = () => {
     const {orders,userName} = useContext(context)
+
   return <>
   <div className='mt-10  w-[90%] md:w-[95%] mx-auto flex flex-col'>
     <div className='-my-2 -mx-4 sm:-mx-6 lg:mx-8 overflow-x-auto'>
@@ -51,7 +52,16 @@ const TableOfOrders = () => {
     {
         orders?.map((order)=>{
             return(
-                <tr key={order.orderId}>
+                <motion.tr
+                initial={{opacity:0}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    opacity:1
+                }}
+                key={order.orderId}>
               
              
               <td className='hidden md:table-cell whitespace-nowrap   px-4 pl-4 pr-3 text-sm font-medium capitalize sm:pl-6'>
@@ -74,7 +84,7 @@ const TableOfOrders = () => {
                 <td className='  whitespace-normal px-4 pl-4 pr-3 text-sm font-medium sm:pl-6'>
                     {userName.firstName} {userName.lastName}
                 </td>
-             </tr>
+             </motion.tr>
             )
         }
     

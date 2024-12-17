@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { IoSettings } from "react-icons/io5";
 import { TbPasswordUser } from "react-icons/tb";
-
+import { motion } from 'framer-motion';
 const AsideProfile = () => {
   const elements = [
     {id: 0, content: "general", href: "/Profile", icon: <IoSettings size={24}/>},
@@ -18,7 +18,16 @@ const AsideProfile = () => {
 
   return (
     <div className='dark:bg-[#171717] shadow-lg bg-white rounded-lg w-[95%] md:w-[370px] pb-[79px] pt-4 mt-[10px] p-2'>
-      <aside className='p-2'>
+      <motion.aside
+       initial={{scale:0.5}}
+       transition={{
+           duration:0.7,
+           type:"tween"
+       }}
+       whileInView={{
+           scale:1
+       }}
+      className='p-2'>
         <div>
           <ul className='flex flex-col items-start gap-8'>
             <li>
@@ -39,7 +48,7 @@ const AsideProfile = () => {
             }
           </ul>
         </div>
-      </aside>
+      </motion.aside>
     </div>
   );
 }

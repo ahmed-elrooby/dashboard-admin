@@ -12,7 +12,7 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { context } from "@/Providers/Context/ContextData";
 import {  RiMenuFold4Fill, RiMenuUnfold4Fill } from "react-icons/ri";
-
+import { motion } from "framer-motion";
 
 const Aside = () => {
   const [isClosed, setIsClosed] = useState(false);
@@ -47,7 +47,15 @@ const {setIsLoggedIn}= useContext(context)
       }
   return (
     <div className=" relative ">
-      <div
+      <motion.div
+      initial={{scale:0.5}}
+      transition={{
+          duration:0.7,
+          type:"tween"
+      }}
+      whileInView={{
+          scale:1
+      }}
         onClick={toggleSidebar}
         className="bg-[--secondary-color]
          hover:bg-[#3f33e1] w-fit p-1 md:p-2
@@ -56,7 +64,7 @@ const {setIsLoggedIn}= useContext(context)
             md:left-3 top-[-51px] md:top-[-60px] text-white z-10"
       >
         {isClosed ? <RiMenuFold4Fill size={32} /> : <RiMenuUnfold4Fill  size={32} />}
-        </div>
+        </motion.div>
 
       <aside
         className={` pt-3 min-h-screen  transition-all duration-300 ${

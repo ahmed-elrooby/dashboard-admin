@@ -10,6 +10,7 @@ import { context } from '@/Providers/Context/ContextData';
 import axiosInstance from '@/_utils/axiosInstance'
 import { FaSpinner } from 'react-icons/fa';
 import { CiSearch } from 'react-icons/ci';
+import { motion } from 'framer-motion';
 const TableOfProducts = () => {
     const { setProducts,images,products,getAllProducts,loadding,setLoadding } = useContext(context);
 
@@ -51,14 +52,23 @@ const TableOfProducts = () => {
 
     <div className='-my-2 -mx-4 sm:-mx-6 lg:mx-8 overflow-x-auto'>
 <div className='inline-block ml-2 md:ml-1 min-w-full  py-2 align-middle md:px-6 lg:px-8'>
-<div className=' mb-4 relative    '>
+<motion.div
+ initial={{scale:0.5}}
+ transition={{
+     duration:0.7,
+     type:"tween"
+ }}
+ whileInView={{
+     scale:1
+ }}
+ className=' mb-4 relative    '>
             <div className='absolute left-[4px] border-r border-[--secondary-color] -translate-y-[50%] top-[50%]'>
             <CiSearch className="text-[--secondary-color]" size={24} />
 
             </div>
             <input className='w-fit p-2 pl-[29px]'placeholder="Search for products..." value={query} onChange={handleSearch} type="text" />
 
-          </div>
+          </motion.div>
     <div className='overflow-x-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg'>
       
         {loadding ? (
@@ -67,7 +77,9 @@ const TableOfProducts = () => {
            <FaSpinner size={52} className="mx-auto  animate-spin" />
           </div>
         ) : (
-            <table className=' min-w-full divide-y  divide-gray-300'>
+            <table
+            
+            className=' min-w-full divide-y  divide-gray-300'>
 <thead className='bg-[--secondary-color]  text-white font-bold capitalize'>
     <tr >
    
@@ -105,7 +117,16 @@ const TableOfProducts = () => {
         products?.map((ele)=>{
             const productImage = images?.find((img)=> img.productId === ele.productId)
             return(
-                <tr key={ele.productId}>
+                <motion.tr 
+                initial={{opacity:0}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    opacity:1
+                }}
+                key={ele.productId}>
                  <td className='whitespace-nowrap   px-4 pl-4 pr-3 text-sm font-medium text-[--secondary-color] sm:pl-6'>
             {ele.name}
      <Image
@@ -144,7 +165,7 @@ const TableOfProducts = () => {
                 </div>
              </Link>
                 </td>
-             </tr>
+             </motion.tr>
             )
         }
     

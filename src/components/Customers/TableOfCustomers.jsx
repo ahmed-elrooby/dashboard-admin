@@ -6,7 +6,7 @@ import { BiSolidMessageAltEdit } from 'react-icons/bi';
 import { MdAutoDelete } from 'react-icons/md';
 import { context } from '@/Providers/Context/ContextData';
 import SkeletonCustomers from '../Skeltons/SkeletonCustomer/SkeletonCustomers';
-
+import { motion } from 'framer-motion';
 const TableOfCustomers = () => {
     const { allCustomers } = useContext(context);
 
@@ -53,7 +53,16 @@ const TableOfCustomers = () => {
     {
         allCustomers?.map((ele)=>{
             return(
-                <tr key={ele.customerId}>
+                <motion.tr
+                initial={{opacity:0}}
+                transition={{
+                    duration:0.7,
+                    type:"tween"
+                }}
+                whileInView={{
+                    opacity:1
+                }}
+                 key={ele.customerId}>
                  <td className='whitespace-nowrap   px-4 pl-4 pr-3 text-sm font-medium text-[--secondary-color] sm:pl-6'>
             {ele.firstName} {ele.lastName}
      <Image
@@ -89,7 +98,7 @@ const TableOfCustomers = () => {
              </div>
              
                 </td>
-             </tr>
+             </motion.tr>
             )
         }
     
