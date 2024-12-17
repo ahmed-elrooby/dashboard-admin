@@ -1,18 +1,16 @@
 "use client"
-import Image from 'next/image'
-import React, { useContext, useState } from 'react'
-import regImage from "../../images/register.svg"
 import Joi from 'joi'
-import axios from 'axios'
-import toast from 'react-hot-toast'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import {  FaSpinner} from "react-icons/fa";
+import { useState } from 'react'
+import toast from 'react-hot-toast'
+import { FaSpinner } from "react-icons/fa"
+import { PiHandWavingLight } from "react-icons/pi"
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
-import { PiHandWavingLight } from "react-icons/pi";
+import regImage from "../../images/register.svg"
 
-import Link from 'next/link'
-import { context } from '@/Providers/Context/ContextData'
 import axiosInstance from '@/_utils/axiosInstance'
+import Link from 'next/link'
 const Register = () => {
   const router = useRouter()
 const [loadding, setLoadding] = useState(false)
