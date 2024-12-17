@@ -27,7 +27,8 @@ const currentDate = new Date()
   <div className='mx-auto w-full bg-transparent  p-1 rounded-lg'>
   <div className='bg-white  p-4 rounded-lg mx-auto dark:bg-[#171717]'>
   <div >
-      <p className='flex items-center gap-1 capitalize'>Welcome  <span className='font-bold text-[--secondary-color]'>  {dataOfAdmin?.firstName} {dataOfAdmin?.lastName} </span>  to our <span className='text-[--secondary-color]  text-[20px] font-bold'>Website</span> 😊</p>
+      <p className='flex items-center gap-1 capitalize'>Welcome  يعم
+         <span className='font-bold text-[--secondary-color]'>  {dataOfAdmin?.firstName} {dataOfAdmin?.lastName} </span>  to our <span className='text-[--secondary-color]  text-[20px] font-bold'>Website</span> 😊</p>
       </div>
   </div>
     <div className='flex gap-1 md:flex-row flex-col '>

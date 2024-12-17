@@ -13,9 +13,9 @@ const Header = () => {
 <div className='w-full'>
   <div className='flex items-center dark:bg-[#171717] pl-[50px] md:pl-[73px]   justify-between bg-white px-5 py-3'>
     <div>
-<Link href={"/"} onClick={()=>{router.refresh()}}>
+<a href='/' onClick={()=>{router.refresh()}}>
 <Image src={logo} className='md:w-[45px] mt-[10px] mx-auto w-[35px] h-[35px]  md:h-[45px] ' alt='img'/>
-</Link>
+</a>
     </div>
     <ul className='flex items-center gap-2'>
       <li><ThemChanger/></li>
