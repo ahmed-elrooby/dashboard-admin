@@ -51,13 +51,14 @@ console.log(isLoggedIn)
         router.push("/")
      
       } else {
-        toast.error("error")
+        toast.error("incorrect password or email")
 
       }
       console.log(data)
     }
     catch (error) {
         console.log(error)
+        toast.error("incorrect password or email ")
         
       }
     finally {
@@ -69,8 +70,7 @@ console.log(isLoggedIn)
     e.preventDefault();
     const schema = Joi.object({
       email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ["com", "net"] } }).required(),
-      password: Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$/).required(),
-
+    password:Joi.string().pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\da-zA-Z]).{6,}$/).required(),
     })
 
     const res = schema.validate(user, { abortEarly: false })
